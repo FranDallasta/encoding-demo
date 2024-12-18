@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Encoding Demo</title>
+</head>
+
+<body>
+    <h1>HTML Encoding Example</h1>
+    <p>Type something that might include special characters like &lt; or &gt;:</p>
+
+    <!-- Input form -->
+    <input type="text" id="userInput" placeholder="Enter text" />
+    <button onclick="handleInput()">Submit</button>
+
+    <!-- Output area -->
+    <div id="output" style="margin-top: 20px; white-space: pre-wrap; font-family: monospace;"></div>
+
+    <script>
+        function handleInput() {
+            // Step 1: Get user input
+            const input = document.getElementById('userInput').value;
+
+            // Step 2: Encode input to prevent script injection
+            const tempDiv = document.createElement('div');
+            tempDiv.textContent = input; // Forces plain text rendering
+
+            // Step 3: Display safe content
+            const output = document.getElementById('output');
+            output.textContent = tempDiv.textContent; // Always display encoded safe text
+        }
+    </script>
+</body>
+
+</html>
